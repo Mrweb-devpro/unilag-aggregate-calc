@@ -3,9 +3,9 @@ import { useMemo, useState } from "react";
 import {
   Search,
   Building2,
-  TrendingUp,
-  TrendingDown,
-  Minus,
+  // TrendingUp,
+  // TrendingDown,
+  // Minus,
 } from "lucide-react";
 import { CUTOFFS, CUTOFF_YEARS } from "@/lib/unilag-data";
 
@@ -85,7 +85,7 @@ export function CutoffList() {
                       <div>
                         <p className="font-semibold text-sm">{it.course}</p>
                         <p className="text-[10px] uppercase tracking-widest text-muted-foreground mt-0.5">
-                          5-year cutoff history
+                          2-year cutoff history
                         </p>
                       </div>
                     </div>
@@ -125,22 +125,22 @@ export function CutoffList() {
   );
 }
 
-function TrendIcon({ trend }: { trend: number }) {
-  if (trend > 0)
-    return (
-      <span className="inline-flex items-center gap-0.5 text-[10px] font-semibold text-accent bg-accent/10 px-2 py-1 rounded-full">
-        <TrendingUp className="w-3 h-3" /> +{trend}
-      </span>
-    );
-  if (trend < 0)
-    return (
-      <span className="inline-flex items-center gap-0.5 text-[10px] font-semibold text-destructive/90 bg-destructive/10 px-2 py-1 rounded-full">
-        <TrendingDown className="w-3 h-3" /> {trend}
-      </span>
-    );
-  return (
-    <span className="inline-flex items-center gap-0.5 text-[10px] font-semibold text-muted-foreground bg-secondary px-2 py-1 rounded-full">
-      <Minus className="w-3 h-3" /> 0
-    </span>
-  );
-}
+// function TrendIcon({ trend }: { trend: number }) {
+//   if (trend > 0)
+//     return (
+//       <span className="inline-flex items-center gap-0.5 text-[10px] font-semibold text-accent bg-accent/10 px-2 py-1 rounded-full">
+//         <TrendingUp className="w-3 h-3" /> +{trend}
+//       </span>
+//     );
+//   if (trend < 0)
+//     return (
+//       <span className="inline-flex items-center gap-0.5 text-[10px] font-semibold text-destructive/90 bg-destructive/10 px-2 py-1 rounded-full">
+//         <TrendingDown className="w-3 h-3" /> {trend}
+//       </span>
+//     );
+//   return (
+//     <span className="inline-flex items-center gap-0.5 text-[10px] font-semibold text-muted-foreground bg-secondary px-2 py-1 rounded-full">
+//       <Minus className="w-3 h-3" /> 0
+//     </span>
+//   );
+// }

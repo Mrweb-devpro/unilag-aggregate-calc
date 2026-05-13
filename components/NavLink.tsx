@@ -16,7 +16,7 @@ export default function NavLink({
   return (
     <Link
       href={to}
-      className={`px-4 py-2 rounded-full hover:bg-secondary transition ${pathname === to ? "bg-secondary" : ""}`}
+      className={`px-4 py-2 rounded-full hover:bg-secondary transition ${pathname === to ? "gold-bg" : ""}`}
     >
       {children}
     </Link>
