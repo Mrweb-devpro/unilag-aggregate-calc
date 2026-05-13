@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { CutoffList } from "@/components/CutoffList";
+import Link from "next/link";
+import { BsWhatsapp } from "react-icons/bs";
 
 export const metadata: Metadata = {
   title: "UNILAG Cutoff Marks — 2-Year History",
@@ -23,6 +25,22 @@ export default function CutoffsPage() {
         </p>
       </div>
       <CutoffList />
+      <br />
+      <br />
+      <div className="mx-auto glass rounded-3xl p-6 sm:p-8 flex flex-col gap-9 w-fit items-center hover:border! border-green-500">
+        <div className="flex flex-col gap-5">
+          <div className="bg-green-500 flex items-center justify-center w-fit p-6 rounded-3xl mx-auto">
+            <BsWhatsapp size={100} />
+          </div>
+          <h3 className="text-xl">Whatsapp Channel</h3>
+          <Link
+            href="https://whatsapp.com/channel/0029Vb6ikNOBFLgeNiW7rY3r"
+            className="mx-auto text-stone-50 px-4 py-2 w-fit bg-green-500 rounded-full"
+          >
+            Follow
+          </Link>
+        </div>
+      </div>
     </>
   );
 }

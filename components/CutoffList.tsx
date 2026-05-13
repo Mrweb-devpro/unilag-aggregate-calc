@@ -1,12 +1,6 @@
 "use client";
 import { useMemo, useState } from "react";
-import {
-  Search,
-  Building2,
-  // TrendingUp,
-  // TrendingDown,
-  // Minus,
-} from "lucide-react";
+import { Search, Building2 } from "lucide-react";
 import { CUTOFFS, CUTOFF_YEARS } from "@/lib/unilag-data";
 
 export function CutoffList() {
@@ -64,18 +58,17 @@ export function CutoffList() {
           </p>
         )}
         {grouped.map(([f, items]) => (
-          <div key={f}>
+          <div key={f} className="w-fit">
             <div className="flex items-center gap-2 mb-3 text-accent">
               <Building2 className="w-4 h-4" />
               <h3 className="text-sm font-semibold uppercase tracking-widest">
                 {f}
               </h3>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-3 flex w-full flex-wrap items-center justify-center gap-4">
               {items.map((it) => {
                 const latest = it.cutoffs[CUTOFF_YEARS[0]];
                 const prev = it.cutoffs[CUTOFF_YEARS[1]];
-                const trend = latest - prev;
                 return (
                   <div
                     key={it.course}
@@ -89,14 +82,14 @@ export function CutoffList() {
                         </p>
                       </div>
                     </div>
-                    <div className="grid grid-cols-5 gap-1.5">
+                    <div className="flex gap-3">
                       {CUTOFF_YEARS.map((y, idx) => {
                         const v = it.cutoffs[y];
                         const isLatest = idx === 0;
                         return (
                           <div
                             key={y}
-                            className={`rounded-lg px-2 py-2 text-center border ${
+                            className={`w-full md:w-fit rounded-lg px-2 py-2 text-center border ${
                               isLatest
                                 ? "border-accent/40 bg-accent/10"
                                 : "border-border/50 bg-background/30"
@@ -124,23 +117,3 @@ export function CutoffList() {
     </div>
   );
 }
-
-// function TrendIcon({ trend }: { trend: number }) {
-//   if (trend > 0)
-//     return (
-//       <span className="inline-flex items-center gap-0.5 text-[10px] font-semibold text-accent bg-accent/10 px-2 py-1 rounded-full">
-//         <TrendingUp className="w-3 h-3" /> +{trend}
-//       </span>
-//     );
-//   if (trend < 0)
-//     return (
-//       <span className="inline-flex items-center gap-0.5 text-[10px] font-semibold text-destructive/90 bg-destructive/10 px-2 py-1 rounded-full">
-//         <TrendingDown className="w-3 h-3" /> {trend}
-//       </span>
-//     );
-//   return (
-//     <span className="inline-flex items-center gap-0.5 text-[10px] font-semibold text-muted-foreground bg-secondary px-2 py-1 rounded-full">
-//       <Minus className="w-3 h-3" /> 0
-//     </span>
-//   );
-// }
