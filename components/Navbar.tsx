@@ -34,7 +34,7 @@ export default function Navbar() {
         </div>
       </header>
       {/* Mobile Navigation */}
-      <nav className="flex md:hidden items-center gap-1 text-sm mx-auto my-6">
+      <nav className="flex md:hidden items-center gap-1 text-sm mx-auto my-6 border p-3 border-yellow-600 rounded-full">
         <NavLink to="/">Calculator</NavLink>
         <NavLink to="/cutoffs">Cutoffs</NavLink>
       </nav>
